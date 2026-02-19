@@ -1,0 +1,37 @@
+{
+  "name": "malankara-palace-strapi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Strapi CMS for Malankara Palace website",
+  "license": "MIT",
+  "author": {
+    "name": "Malankara Palace"
+  },
+  "scripts": {
+    "build": "strapi build",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.25.12",
+    "@strapi/plugin-users-permissions": "4.25.12",
+    "@strapi/strapi": "4.25.12",
+    "pg": "^8.13.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^5.3.4",
+    "styled-components": "^5.3.11"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "malankara-palace-strapi"
+  }
+}
