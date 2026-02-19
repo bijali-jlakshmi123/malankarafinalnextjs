@@ -20,6 +20,45 @@ const rooms = [
       "Ideal for couples and luxury travellers, The Lakeview Royal Suite is a space where calm mornings, golden evenings, and thoughtful details define the stay experience.",
     ],
   },
+  {
+    id: 2,
+    name: "The Lakeview Presidential Suite",
+    images: [
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop", // Master Bedroom
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop", // Balcony/View
+    ],
+    description: [
+      "The Lakeview Presidential Suite is a spacious interconnected luxury accommodation designed for families and premium guests who value space, privacy, and scenic surroundings. Thoughtfully planned with comfort and functionality in mind, this suite features two interconnected rooms with a single private entrance, offering both togetherness and personal space within the same stay.",
+      "A large shared private balcony connects both rooms and opens to beautiful panoramic views of Malankara Lake, along with garden and swimming pool views, and a partial view of the Illavizha Poonchira Hills. The elevated position and open outlook create a relaxed, airy atmosphere throughout the day.",
+      "Ideal for families, small groups, and extended-stay guests, The Lakeview Presidential Suite combines scale, comfort, and refined lakeview living for a truly memorable stay experience.",
+    ],
+  },
+  {
+    id: 3,
+    name: "The Lakeview Sunset Mirage",
+    images: [
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2574&auto=format&fit=crop", // Bedroom view
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2670&auto=format&fit=crop", // Balcony/View
+    ],
+    description: [
+      "The Lakeview Sunset Mirage is a stylish and relaxing lake-facing room designed for guests who want to experience nature’s colours at their finest. Carefully positioned to capture some of the most beautiful evening views, this room offers a calm and refreshing stay defined by light, openness, and scenic surroundings.",
+      "The private balcony overlooks Malankara Lake along with garden and swimming pool views, creating a layered landscape that changes throughout the day. As the sun sets, the sky and water glow with warm tones, turning everyday moments into memorable experiences.",
+      "Ideal for couples and leisure travellers, The Lakeview Sunset Mirage blends comfort, simplicity, and visual beauty into a peaceful stay experience.",
+    ],
+  },
+  {
+    id: 4,
+    name: "The Lakeview Premium Twin",
+    images: [
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2603&auto=format&fit=crop", // Twin Beds
+      "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&w=2574&auto=format&fit=crop", // View
+    ],
+    description: [
+      "The Lakeview Premium Twin is a refined luxury accommodation designed for guests who value comfort, elegance, and a peaceful scenic setting. With its twin-bed configuration and thoughtfully planned layout, this room is ideal for friends, colleagues, and travellers who prefer shared space without compromising on privacy and comfort.",
+      "The private balcony overlooks Malankara Lake along with garden and swimming pool views, offering a calm and refreshing outlook throughout the day. Evenings are especially memorable, with soft sunset colours reflecting across the water and surrounding landscape.",
+      "Blending premium interiors with nature-facing openness, The Lakeview Premium Twin delivers a relaxed and comfortable lakeview stay experience.",
+    ],
+  },
 ];
 
 export default function RoomsList() {
@@ -39,8 +78,8 @@ export default function RoomsList() {
 
         {/* Room Cards */}
         <div className="space-y-24">
-          {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} />
+          {rooms.map((room, index) => (
+            <RoomCard key={room.id} room={room} index={index} />
           ))}
         </div>
       </div>
@@ -48,7 +87,7 @@ export default function RoomsList() {
   );
 }
 
-function RoomCard({ room }: { room: any }) {
+function RoomCard({ room, index }: { room: any; index: number }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -64,7 +103,11 @@ function RoomCard({ room }: { room: any }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-neutral-50 p-8 rounded-sm">
       {/* Image Slider */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm group">
+      <div
+        className={`relative aspect-[4/3] w-full overflow-hidden rounded-sm group ${
+          index % 2 !== 0 ? "lg:order-last" : ""
+        }`}
+      >
         <Image
           src={room.images[currentImageIndex]}
           alt={room.name}
