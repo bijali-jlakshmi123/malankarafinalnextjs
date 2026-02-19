@@ -252,7 +252,10 @@ export default function Footer() {
       {/* Floating Action Buttons (Fixed Bottom Right) */}
       <div className="fixed bottom-4 right-4 z-50 flex flex-col space-y-3 items-end">
         {/* Book Now */}
-        <button className="bg-[#6A1B9A] hover:bg-[#4A148C] text-white px-6 py-2.5 rounded shadow-lg transition-colors duration-200 flex items-center space-x-2 text-sm font-medium">
+        <button
+          suppressHydrationWarning
+          className="bg-[#6A1B9A] hover:bg-[#4A148C] text-white px-6 py-2.5 rounded shadow-lg transition-colors duration-200 flex items-center space-x-2 text-sm font-medium"
+        >
           <svg
             className="w-5 h-5"
             fill="none"
@@ -274,6 +277,7 @@ export default function Footer() {
           href="https://wa.me/917510200444"
           target="_blank"
           rel="noopener noreferrer"
+          suppressHydrationWarning
           className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-2.5 rounded shadow-lg transition-colors duration-200 flex items-center space-x-2 text-sm font-medium"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -284,6 +288,7 @@ export default function Footer() {
 
         {/* Scroll to Top */}
         <button
+          suppressHydrationWarning
           className="w-10 h-10 bg-[#6A1B9A] hover:bg-[#4A148C] text-white rounded flex items-center justify-center shadow-lg transition-colors"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >

@@ -450,6 +450,111 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
+      {/* Recreation & Family Facilities Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 max-w-6xl mx-auto">
+            {/* Image (Left) */}
+            <div className="relative h-[400px] lg:h-auto w-full">
+              <Image
+                src="https://images.unsplash.com/photo-1596707328639-5a1d7f4ce9d3?q=80&w=2070&auto=format&fit=crop"
+                alt="Recreation and Family Facilities"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Content (Right) */}
+            <div className="bg-[#f9f7f2] p-10 lg:p-16 flex flex-col justify-center">
+              <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-6 font-medium">
+                Recreation & Family Facilities
+              </h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-8">
+                Dedicated indoor and outdoor spaces for recreation, family time,
+                and relaxed engagement.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                <ul className="space-y-4">
+                  {[
+                    "Indoor games area",
+                    "Snooker & football",
+                    "Carrom & Chess",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center space-x-4">
+                      <div className="flex-shrink-0">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="12"
+                            cy="12"
+                            r="11"
+                            stroke="#702C8B"
+                            strokeWidth="1.5"
+                          />
+                          <path
+                            d="M8 12L11 15L16 9"
+                            stroke="#702C8B"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700 text-lg font-light">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="space-y-4">
+                  {[
+                    "Badminton court",
+                    "Kids play area",
+                    "Open activity spaces",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center space-x-4">
+                      <div className="flex-shrink-0">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="12"
+                            cy="12"
+                            r="11"
+                            stroke="#702C8B"
+                            strokeWidth="1.5"
+                          />
+                          <path
+                            d="M8 12L11 15L16 9"
+                            stroke="#702C8B"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700 text-lg font-light">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

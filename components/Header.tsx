@@ -54,11 +54,15 @@ export default function Header() {
 
             {/* Right side - Book Now button and Hamburger */}
             <div className="flex items-center space-x-4">
-              <button className="hidden md:block bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-md font-medium transition-colors duration-200">
+              <button
+                suppressHydrationWarning
+                className="hidden md:block bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-md font-medium transition-colors duration-200"
+              >
                 BOOK NOW
               </button>
               <button
                 onClick={toggleMenu}
+                suppressHydrationWarning
                 className="w-10 h-10 flex flex-col justify-center items-center space-y-1.5 group"
                 aria-label="Toggle menu"
               >

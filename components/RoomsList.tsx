@@ -77,7 +77,7 @@ export default function RoomsList() {
         </div>
 
         {/* Room Cards */}
-        <div className="space-y-24">
+        <div className="space-y-24 max-w-4xl mx-auto">
           {rooms.map((room, index) => (
             <RoomCard key={room.id} room={room} index={index} />
           ))}
@@ -100,13 +100,15 @@ function RoomCard({ room, index }: { room: any; index: number }) {
     );
   };
 
+  // Determine order classes for alternating layout
+  const imageOrder = index % 2 !== 0 ? "lg:order-last" : "lg:order-first";
+  const contentOrder = index % 2 !== 0 ? "lg:order-first" : "lg:order-last";
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-neutral-50 p-8 rounded-sm">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch font-sans">
       {/* Image Slider */}
       <div
-        className={`relative aspect-[4/3] w-full overflow-hidden rounded-sm group ${
-          index % 2 !== 0 ? "lg:order-last" : ""
-        }`}
+        className={`relative h-[300px] sm:h-[400px] lg:h-auto w-full overflow-hidden group ${imageOrder}`}
       >
         <Image
           src={room.images[currentImageIndex]}
@@ -118,7 +120,7 @@ function RoomCard({ room, index }: { room: any; index: number }) {
         {/* Slider Controls */}
         <button
           onClick={prevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+          className="absolute left-4 top-1/2 -translate-y-1/2 hover:text-white/80 text-white p-2 transition-all z-10"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +128,7 @@ function RoomCard({ room, index }: { room: any; index: number }) {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-8 h-8"
           >
             <path
               strokeLinecap="round"
@@ -137,7 +139,7 @@ function RoomCard({ room, index }: { room: any; index: number }) {
         </button>
         <button
           onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all"
+          className="absolute right-4 top-1/2 -translate-y-1/2 hover:text-white/80 text-white p-2 transition-all z-10"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +147,7 @@ function RoomCard({ room, index }: { room: any; index: number }) {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-8 h-8"
           >
             <path
               strokeLinecap="round"
@@ -154,23 +156,24 @@ function RoomCard({ room, index }: { room: any; index: number }) {
             />
           </svg>
         </button>
+
+        {/* Overlay gradient for text readability if needed, though buttons are clear */}
+        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
       </div>
 
       {/* Content */}
-      <div className="flex flex-col h-full justify-between">
-        <div>
-          <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-6">
-            {room.name}
-          </h3>
-          <div className="space-y-4 text-gray-600 leading-relaxed text-[15px] md:text-base font-light text-justify">
-            {room.description.map((paragraph: string, idx: number) => (
-              <p key={idx}>{paragraph}</p>
-            ))}
-          </div>
+      <div
+        className={`bg-[#F4F4F1] p-8 lg:p-12 flex flex-col justify-center ${contentOrder}`}
+      >
+        <h3 className="text-3xl font-serif text-gray-900 mb-6">{room.name}</h3>
+        <div className="space-y-4 text-gray-600 leading-relaxed text-[15px] font-light text-justify mb-8">
+          {room.description.map((paragraph: string, idx: number) => (
+            <p key={idx}>{paragraph}</p>
+          ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <button className="bg-[#702C8B] hover:bg-[#5a2370] text-white px-8 py-3 rounded text-sm tracking-wider font-medium transition-colors uppercase">
+        <div>
+          <button className="bg-[#702C8B] hover:bg-[#5a2370] text-white px-8 py-3 rounded-sm text-sm tracking-widest font-medium transition-colors uppercase">
             Discover
           </button>
         </div>
