@@ -26,9 +26,9 @@ export default function HeroSlider() {
             },
             {
               id: 2,
-              title: "Luxury Redefined",
+              title: "A Tranquil Lakeside Escape at Malankara Palace",
               description:
-                "Experience world-class amenities and impeccable service in the heart of nature.",
+                "Wake up to calm waters, gentle breezes, and unforgettable moments by Malankara Dam.",
               image: { url: "/images/hero-2.jpg" },
             },
           ]);
